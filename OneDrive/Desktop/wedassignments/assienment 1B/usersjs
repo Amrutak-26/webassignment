@@ -1,0 +1,15 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const userList = document.getElementById("userList");
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.length === 0) {
+        userList.innerHTML = "<li>No registered users found.</li>";
+    } else {
+        users.forEach(user => {
+            const li = document.createElement("li");
+            li.textContent = `Name: ${user.name}, Email: ${user.email}`;
+            userList.appendChild(li);
+        });
+    }
+});

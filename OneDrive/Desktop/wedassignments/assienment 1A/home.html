@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Ecommerce Dashboard</title> 
+    <link rel="stylesheet" href="styles.css"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+rel="stylesheet"> 
+ 
+</head> 
+<body> 
+    <div class="dashboard"> 
+        <!-- Sidebar --> 
+        <aside class="sidebar"> 
+            <h2>ShopAdmin</h2> 
+            <ul> 
+                <li><a href="#">Dashboard</a></li> 
+                <li><a href="#">Orders</a></li> 
+                <li><a href="#">Products</a></li> 
+                <li><a href="#">Customers</a></li> 
+                <li><a href="#">Reports</a></li> 
+                <li><a href="#">Settings</a></li> 
+            </ul> 
+        </aside> 
+ 
+        <!-- Main Content --> 
+        <main class="main-content"> 
+            <header class="header"> 
+                <h1>Dashboard</h1> 
+                <input type="search" placeholder="Search..."> 
+                <button>Logout</button> 
+            </header> 
+ 
+            <section class="stats"> 
+                <div class="card"> 
+                    <i class="fa-solid fa-truck-fast"></i> 
+                    <h3>Total Revenue</h3> 
+                    <p>45,000RS</p> 
+                </div> 
+                <div class="card"> 
+                    <i class="fa-solid fa-cart-shopping"></i>   
+                    <h3> Orders</h3>   
+                    <p>1,230</p>   
+                </div> 
+                 
+                <div class="card"> 
+                    <i class="fa-solid fa-users"></i> 
+                    <h3>Customers</h3> 
+                    <p>980</p> 
+                </div> 
+                <div class="card"> 
+                    <i class="fa-solid fa-shirt"></i> 
+                    <h3>Products</h3> 
+                    <p>320</p> 
+                </div> 
+            </section> 
+ 
+            <section class="recent"> 
+                <h2>Recent Orders</h2> 
+                <table> 
+                    <thead> 
+                        <tr> 
+                            <th>Order ID</th> 
+                            <th>Customer</th> 
+                            <th>Status</th> 
+                            <th>Total</th> 
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+                        <tr> 
+                            <td>#00123</td> 
+                            <td>Amruta Kusumkar</td> 
+                            <td>Shipped</td> 
+                            <td>12000 RS</td> 
+                        </tr> 
+                        <tr> 
+                            <td>#00124</td> 
+                            <td>Diksha Jadhav</td> 
+                            <td>Processing</td> 
+                            <td>8555 RS</td> 
+                        </tr> 
+                        <tr> 
+                            <td>#00125</td> 
+                            <td> Tanisha Kale</td> 
+                            <td>Delivered</td> 
+                            <td>16750 RS</td> 
+                        </tr> 
+                    </tbody> 
+                </table> 
+            </section> 
+        </main> 
+    </div> 
+</body> 
+</html>
