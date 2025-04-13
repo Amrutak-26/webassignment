@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            resize: none;
+            height: 80px;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        button {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #ff5f6d, #ffc371);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Feedback Form</h2>
+        <form id="feedbackForm" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="emailError" class="error"></span>
+            
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+            <span id="ratingError" class="error"></span>
+            
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" required></textarea>
+            <span id="commentError" class="error"></span>
+            
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let email = document.getElementById("email").value;
+            let rating = document.getElementById("rating").value;
+            let comments = document.getElementById("comments").value.trim();
+            let emailError = document.getElementById("emailError");
+            let ratingError = document.getElementById("ratingError");
+            let commentError = document.getElementById("commentError");
+            
+            emailError.innerHTML = "";
+            ratingError.innerHTML = "";
+            commentError.innerHTML = "";
+            
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                emailError.innerHTML = "Invalid email format";
+                return false;
+            }
+            
+            if (rating < 1 || rating > 5) {
+                ratingError.innerHTML = "Rating must be between 1 and 5";
+                return false;
+            }
+            
+            if (comments === "") {
+                commentError.innerHTML = "Comment cannot be empty";
+                return false;
+            }
+            
+            alert("Feedback submitted successfully!");
+            return true;
+        }
+    </script>
+</body>
+</html>

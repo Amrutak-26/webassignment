@@ -1,0 +1,34 @@
+1)Installing Git on Windows
+Download Git from Git SCM.
+Install it with default settings.
+Verify installation using:
+
+
+git --version
+
+2) Configuring Git (First-Time Setup)
+Before using Git, set up your username and email:
+
+git config --global user.name "YourGitHubUsername"
+git config --global user.email "YourEmail@example.com"
+
+3)Initialize Git Repository
+
+git init
+
+4)Add a Remote Repository
+
+git remote add origin https://github.com/YourGitHubUsername/WebAssignments.
+
+5)Add Files to Git
+
+git add .
+
+6)Commit the Changes
+
+git commit -m "Initial Commit: Added assignment folders and files"
+
+ 7)Push Code to GitHub
+
+git branch -M main
+git push -u origin main

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+</head>
+<body>
+    <script>
+        function isPrime(n) {
+            if (n < 2) return false;
+            for (let i = 2; i < n; i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        let num = parseInt(prompt("Enter a number: "));
+        let message = isPrime(num) ? num + " is a Prime Number" : num + " is Not a Prime Number";
+
+        document.write("<h2>Prime Number Checker</h2>");
+        document.write("<p>You entered: <strong>" + num + "</strong></p>");
+        document.write("<p>Result: <strong>" + message + "</strong></p>");
+    </script>
+</body>
+</html>

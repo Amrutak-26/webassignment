@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f2f2f2, #f7f7f7);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-container button:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+   <H2>    REGISTRATION FORM  </H2>
+    <form id="dataForm" onsubmit="submitForm(event)">
+        <div class="login-container">
+           
+            <input type="text" id="name" placeholder="Username" required><br>
+            <input type="password" id="password" placeholder="Password" required><br>
+            <input type="text" id="age" placeholder="Age" required><br>
+            <input type="text"  id="number"  placeholder="number" required><br>
+            <button type="submit">Submitte</button>
+        </div>
+        <div class="footer">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </div>
+    </form>
+</div>
+<script>
+    function submitForm(event) {
+        event.preventDefault(); 
+
+        const name = document.getElementById('name').value;
+        const password = document.getElementById('password').value;
+        const age = document.getElementById('age').value;
+        const number = document.getElementById('number').value;
+
+        // Check if name is already taken
+        let data = JSON.parse(localStorage.getItem('data')) || [];
+        const userExists = data.some(user => user.name === name); // Check if the username already exists
+
+        if (name && password && age) {
+            if (userExists) {
+                // If the username already exists, show an alert
+                alert("Username already exists. Please choose a different one.");
+            } else {
+                // If the username doesn't exist, proceed with the form submission
+                let formData = { name: name, password: password, age: age, number: number };
+                data.push(formData);
+                localStorage.setItem('data', JSON.stringify(data));
+
+                // Redirect to table.html or the next page
+                window.location.href = 'table.html';
+            }
+        } else {
+            alert("Please fill out all fields!");
+        }
+    }
+</script>
+
+</body>
+</html>
+
